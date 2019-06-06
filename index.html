@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body style="background-image: url(bg.jpg);">
+
+	<h1>ЖУКОВ:<span class="score">0</span></h1>
+	<h1>ОЧКИ:<span class="summa">0</span></h1>
+	<script>
+		let score = 0
+		let summa = 0
+		let interv = function(){
+            score= score+1
+			document.querySelector(".score").innerHTML = score
+			let rand = Math.random()*1300
+		    let round = Math.round(rand)
+		    let randa = Math.random()*500
+		    let rounda = Math.round(randa)
+			let newDiv = document.createElement('img');
+			let newDiv2 = document.createElement('img')
+		    document.body.appendChild(newDiv)
+		    document.body.appendChild(newDiv2)
+		    
+
+
+		    let rand1 = Math.random()*1300
+		    let round1 = Math.round(rand1)
+		    let randa1 = Math.random()*500
+		    let rounda1 = Math.round(randa1)
+
+		    //2
+		    //1
+		    newDiv.src= 'img.svg'
+		    newDiv.style.height =' 50px';
+		    newDiv.style.width = '50px';
+		    newDiv.style.marginLeft = rand+"px";
+		    newDiv.style.marginTop = randa+"px";
+		    newDiv.style.position = 'absolute';
+		    newDiv.onclick = function(){
+		    	summa = summa+1
+		    	document.querySelector(".summa").innerHTML = summa
+		    	score = score-1
+		    	document.querySelector(".score").innerHTML = score
+		    	newDiv.style.display = 'none'
+		    }	   
+		} 
+		let intervalID=setInterval(interv,1500)
+		 let x = function(){
+		 	 if ( score == 0   ) {//условие
+				alert("вы выиграли")
+				clearInterval(intervalID)
+			} 
+		    }
+		    setTimeout(x,10000)
+	</script>
+</body>
+</html>
